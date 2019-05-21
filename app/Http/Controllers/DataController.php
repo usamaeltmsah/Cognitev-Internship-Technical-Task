@@ -76,6 +76,17 @@ class DataController extends Controller
         return $info;
     }
 
+    public function groupDataBySelectedFields($pars1, $pars2)
+    {
+        $groupBy = explode(",", $pars1);
+        $fields_arr = explode(",", $pars2);
+
+        $info = DB::table('data')
+            ->select($fields_arr)
+            ->groupBy($groupBy)
+            ->get();
+        return $info;
+    }
     /**
      * Display the specified resource.
      *
