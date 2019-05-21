@@ -92,11 +92,6 @@ DB_PASSWORD=''
             'engine' => null,
         ],
  ```
- 
-- Then you need to install `composer`
-```
-composer install
-```
 - Run this command to create the required tables in your database
 ```
 php artisan migrate
