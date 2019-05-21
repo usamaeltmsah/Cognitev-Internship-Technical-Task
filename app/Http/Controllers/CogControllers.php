@@ -9,8 +9,6 @@
 namespace App\Http\Controllers;
 
 
-use HttpRequest;
-
 class CogControllers extends Controller
 {
     /**
