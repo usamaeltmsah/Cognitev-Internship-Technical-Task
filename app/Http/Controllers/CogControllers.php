@@ -53,4 +53,16 @@ class CogControllers extends Controller
         );
         return json_encode($response, 200);
     }
+
+    public function groupData()
+    {
+        $data= $this->hello();
+        $data2= json_decode($data, true);
+        $response=array();
+
+        foreach($data2 as $d)
+        {
+            echo $d["country"];
+        }
+    }
 }

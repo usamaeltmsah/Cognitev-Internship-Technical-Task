@@ -15,3 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/hello', "CogControllers@hello");
+
+//$groubing = DB::table()
+
+Route::get('/h', "CogControllers@groupData");
