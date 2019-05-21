@@ -67,7 +67,14 @@ class DataController extends Controller
         return $info;
     }
 
-
+    public function getFields($pars)
+    {
+        $fields_arr = explode(",", $pars);
+        $info = DB::table('data')
+            ->select($fields_arr)
+            ->get();
+        return $info;
+    }
 
     /**
      * Display the specified resource.
