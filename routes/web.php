@@ -21,3 +21,8 @@ Route::get('/hello', "CogControllers@hello");
 Route::get('/h', "CogControllers@groupData");
 
 Route::resource('data', 'DataController');
+
+Route::get('/data/grouped/{a1}', 'DataController@groupData');
+
+Route::get('/data/select/{a2}', 'DataController@getFields');
+Route::get('/data/groupandselect/{pars1}/{pars2}', 'DataController@groupDataBySelectedFields');
