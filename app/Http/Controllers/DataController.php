@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\data;
+use DB;
 
 class DataController extends Controller
 {
@@ -15,7 +16,9 @@ class DataController extends Controller
      */
     public function index()
     {
-        //
+        $data = data::all()->toArray();
+        //compact will create an array from variable $Data which we can access in index view file in data folder
+        return view('data.index', compact('data'));
     }
 
     /**
@@ -53,6 +56,18 @@ class DataController extends Controller
         $data->save();
         return redirect()->route('data.create')->with('success', 'Data Added Successfully');
     }
+
+    public function groupData($pars)
+    {
+        $groupBy = explode(",", $pars);
+        $info = DB::table('data')
+            ->select('name', 'country', 'budget', 'goal', 'category')
+            ->groupBy($groupBy)
+            ->get();
+        return $info;
+    }
+
+
 
     /**
      * Display the specified resource.
