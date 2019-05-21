@@ -27,6 +27,10 @@ This steps are for Linux OS, for windows you need to do similar.
 ```
 git clone https://github.com/usamaeltmsah/Cognitev-Internship-Technical-Task
 ```
+- Change your cursor to be in the project directory 
+```
+cd Cognitev-Internship-Technical-Task
+```
 - Then it's require to install composer
 ```
 composer install
