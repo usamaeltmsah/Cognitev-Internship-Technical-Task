@@ -112,7 +112,22 @@ Try the previous command again
 ```
 php artisan serve
 ```
-- Open the url now `http://127.0.0.1:8000/`
+- Open the url now `http://127.0.0.1:8000/` and begin the journey
 
-- Url to show the table data in json format `http://127.0.0.1:8000/data`
-- Url to add new row in the table `http://127.0.0.1:8000/data/create`
+## Running the tests
+- Url to show the table data in json format `http://127.0.0.1:8000/data/`
+- Url to add new row in the table `http://127.0.0.1:8000/data/create/`
+- Url to select data from table `http://127.0.0.1:8000/data/select/{first, second, ...}/`
+- Url to group data by some fields `http://127.0.0.1:8000/data/grouped/{first, second, ...}/`
+- Url to group and select data by some fields `http://127.0.0.1:8000/data/groupandselect/{first, second, ...}/{first, second, ...}/`
+
+### Break down into end to end tests
+
+
+## Authors
+
+* **Usama Fouad** - Initial work -[Usama Fouad](https://github.com/usamaeltmsah)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
