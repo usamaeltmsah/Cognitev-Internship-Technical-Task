@@ -121,7 +121,8 @@ php artisan serve
 - Url to group and select data by some fields (seperated by `,`) `http://127.0.0.1:8000/data/groupandselect/{first, second, ...}/{first, second, ...}/`
 
 ### Break down into end to end tests
-- If we entered `http://127.0.0.1:8000/data/` to the URL the response will be like this
+- First of all make sure that you filled your data base using our form `http://127.0.0.1:8000/data/create/`
+- If you entered `http://127.0.0.1:8000/data/` to the URL the response will be something like this
 ```
 [
     {
@@ -161,7 +162,7 @@ php artisan serve
     }
 ]
 ```
-- If we entered `http://127.0.0.1:8000/data/select/name,country,goal/` for the same data, the response will be like this
+- If you entered `http://127.0.0.1:8000/data/select/name,country,goal/` for the same data, the response will be like this
 ```
 [
     {
@@ -191,7 +192,7 @@ php artisan serve
     }
 ]
 ```
-- If we entered `http://127.0.0.1:8000/data/grouped/budget,category/` , response will be like this
+- If you entered `http://127.0.0.1:8000/data/grouped/budget,category/` , response will be like this
 ```
 [
     {
@@ -210,7 +211,7 @@ php artisan serve
     }
 ]
 ```
-- If we entered `http://127.0.0.1:8000/data/groupandselect/country,category/country,category/` , response will be like this
+- If you entered `http://127.0.0.1:8000/data/groupandselect/country,category/country,category/` , response will be like this
 ```
 [
     {
