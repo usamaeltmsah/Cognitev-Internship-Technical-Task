@@ -22,7 +22,7 @@ You need to install `PHP 7.0.9`, some softwares as `Xampp` and `Laravel`. You ca
 A step by step series of examples that tell you how to get a development env running
 
 **`HINT:`** 
-This steps are for Linux OS, for windows you need to do similar.
+This steps are for Linux OS `Terminal is used`, for windows you can use software like `git bash`.
 - First you need to download the project, so open the terminal and write:
 ```
 git clone https://github.com/usamaeltmsah/Cognitev-Internship-Technical-Task
