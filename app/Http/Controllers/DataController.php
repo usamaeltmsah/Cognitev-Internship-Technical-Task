@@ -37,6 +37,33 @@ class DataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function getCategoryFromAPI()
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://ngkc0vhbrl.execute-api.eu-west-1.amazonaws.com/api/?url=https://arabic.cnn.com/",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+        $json=json_decode($response, true);
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+                return $json['category']['name'];
+        }
+    }
+
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -57,34 +84,13 @@ class DataController extends Controller
 
         if($request->get('category') == NULL)
         {
-            $curl = curl_init();
-
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://ngkc0vhbrl.execute-api.eu-west-1.amazonaws.com/api/?url=https://arabic.cnn.com/",
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 30,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET",
-            ));
-
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-
-            curl_close($curl);
-            $json=json_decode($response, true);
-            if ($err) {
-                echo "cURL Error #:" . $err;
-            } else {
-                $data = new data([
-                    'name' => $request->get('name'),
-                    'country' => $request->get('country'),
-                    'budget' => $request->get('budget'),
-                    'goal' => $request->get('goal'),
-                    'category' => $json['category']['name']
-                ]);
-            }
+            $data = new data([
+                'name' => $request->get('name'),
+                'country' => $request->get('country'),
+                'budget' => $request->get('budget'),
+                'goal' => $request->get('goal'),
+                'category' => $this->getCategoryFromAPI()
+            ]);
         }
         $data->save();
         return redirect()->route('data.create')->with('success', 'Data Added Successfully');
