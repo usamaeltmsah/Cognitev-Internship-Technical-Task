@@ -115,14 +115,118 @@ php artisan serve
 
 ## Running the tests
 - Url to show the table data in json format `http://127.0.0.1:8000/data/`
-- Url to add new row in the table `http://127.0.0.1:8000/data/create/`
-- Url to select data from table `http://127.0.0.1:8000/data/select/{first, second, ...}/`
-- Url to group data by some fields `http://127.0.0.1:8000/data/grouped/{first, second, ...}/`
-- Url to group and select data by some fields `http://127.0.0.1:8000/data/groupandselect/{first, second, ...}/{first, second, ...}/`
+- Url to add new row in the table, by filling the form  `http://127.0.0.1:8000/data/create/`
+- Url to select data from table (seperated by `,`) `http://127.0.0.1:8000/data/select/{first, second, ...}/`
+- Url to group data by some fields (seperated by `,`) `http://127.0.0.1:8000/data/grouped/{first, second, ...}/`
+- Url to group and select data by some fields (seperated by `,`) `http://127.0.0.1:8000/data/groupandselect/{first, second, ...}/{first, second, ...}/`
 
 ### Break down into end to end tests
-
-
+- If we entered `http://127.0.0.1:8000/data/` to the URL the response will be like this
+```
+[
+    {
+        "name": "n1",
+        "country": "USA",
+        "budget": 149,
+        "goal": "Awareness",
+        "category": "Technology"
+    },
+    {
+        "name": "n2",
+        "country": "USA",
+        "budget": 149,
+        "goal": "Awareness",
+        "category": "Sports"
+    },
+    {
+        "name": "n3",
+        "country": "EGY",
+        "budget": 149,
+        "goal": "Awareness",
+        "category": "Technology"
+    },
+    {
+        "name": "n4",
+        "country": "USA",
+        "budget": 149,
+        "goal": "Awareness",
+        "category": "Sports"
+    },
+    {
+        "name": "n5",
+        "country": "USA",
+        "budget": 149,
+        "goal": "Conversion",
+        "category": "Sports"
+    }
+]
+```
+- If we entered `http://127.0.0.1:8000/data/select/name,country,goal/` for the same data, the response will be like this
+```
+[
+    {
+        "name": "n1",
+        "country": "USA",
+        "goal": "Awareness"
+    },
+    {
+        "name": "n2",
+        "country": "USA",
+        "goal": "Awareness"
+    },
+    {
+        "name": "n3",
+        "country": "EGY",
+        "goal": "Awareness"
+    },
+    {
+        "name": "n4",
+        "country": "USA",
+        "goal": "Awareness"
+    },
+    {
+        "name": "n5",
+        "country": "USA",
+        "goal": "Conversion"
+    }
+]
+```
+- If we entered `http://127.0.0.1:8000/data/grouped/budget,category/` , response will be like this
+```
+[
+    {
+        "name": "n2",
+        "country": "USA",
+        "budget": 149,
+        "goal": "Awareness",
+        "category": "Sports"
+    },
+    {
+        "name": "n1",
+        "country": "USA",
+        "budget": 149,
+        "goal": "Awareness",
+        "category": "Technology"
+    }
+]
+```
+- If we entered `http://127.0.0.1:8000/data/groupandselect/country,category/country,category/` , response will be like this
+```
+[
+    {
+        "country": "EGY",
+        "category": "Technology"
+    },
+    {
+        "country": "USA",
+        "category": "Sports"
+    },
+    {
+        "country": "USA",
+        "category": "Technology"
+    }
+]
+```
 ## Authors
 
 * **Usama Fouad** - Initial work -[Usama Fouad](https://github.com/usamaeltmsah)
