@@ -20,5 +20,6 @@
                 array_push($response, $arr1);
             }
             print_r(json_encode($response));
+            return json_encode($response);
             ?>
 @endsection
