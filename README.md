@@ -1,4 +1,4 @@
-# Cognitev-Internship-Technical-Task
+# RESTful-campaign-resource
 This task is to: 
 1. create a RESTful campaign resource. Campaign data will be:
    * Name 
