@@ -25,11 +25,11 @@ A step by step series of examples that tell you how to get a development env run
 This steps are for Linux OS `Terminal is used`, for windows you can use software like `git bash`.
 - First you need to download the project, so open the terminal and write:
 ```
-git clone https://github.com/usamaeltmsah/Cognitev-Internship-Technical-Task
+git clone https://github.com/usamaeltmsah/laravel-RESTful-campaign-resource
 ```
 - Change your cursor to be in the project directory 
 ```
-cd Cognitev-Internship-Technical-Task
+cd laravel-RESTful-campaign-resource
 ```
 - Then it's require to install composer
 ```
