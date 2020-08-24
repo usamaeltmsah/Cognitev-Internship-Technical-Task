@@ -1,5 +1,5 @@
 # RESTful-campaign-resource
-This task is to: 
+This project is to: 
 1. create a RESTful campaign resource. Campaign data will be:
    * Name 
    * Country
