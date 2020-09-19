@@ -230,7 +230,7 @@ php artisan serve
 ```
 ## Authors
 
-* **Usama Fouad** - Initial work -[Usama Fouad](https://github.com/usamaeltmsah)
+* [***Usama Fouad***](https://www.linkedin.com/in/usama-fouad-270672110/)
 
 ## License
 
